@@ -1,0 +1,9 @@
+NAfunc<-function(x){
+  set.seed(1)
+  x[x==0.000000]<-NA
+  n<-sum(is.na(x))
+  m<-min(x,na.rm=T)
+  r<-m*0.1
+  x[is.na(x)]<-r
+  x
+}
