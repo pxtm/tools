@@ -1,5 +1,5 @@
 library(xlsx)
-setwd('C:/Users/mclos/Desktop')
+
 tosimca <- read.xlsx('simca_allclusters_3g.xlsx', header = T, sheetIndex = 2, row.names=1)
 
 

@@ -10,8 +10,6 @@
 #biocLite("RDAVIDWebService")
 #install.packages("rJava")
 
-#setwd('C:/Users/mclos/Desktop')
-setwd('C:/Users/mclos/Desktop/Scripts/Python')
 library(DOSE)
 library(clusterProfiler)
 library(RDAVIDWebService)

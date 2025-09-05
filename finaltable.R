@@ -1,4 +1,3 @@
-setwd("/Users/pmc959/Desktop/00_Projects/00_SIMP/Phageome/recovery/")
 files <- list.files()
 
 ## Import all datasets
