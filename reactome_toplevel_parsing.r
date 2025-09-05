@@ -10,7 +10,7 @@ pathways <- AnnotationDbi::toTable(reactomedb::reactomePATHNAME2ID)
 pathwaysSelectedSpecies <- pathways[grep("Homo sapiens: ", iconv(pathways$path_name)), ]
 
 ## Get ancestor pathway for each entry
-top_paths <- sapply(pathwaysSelectedSpecies$DB_ID, function(p){
+top_paths <- lapply(pathwaysSelectedSpecies$DB_ID, function(p){
     tryCatch({
         ancestors <- rbioapi::rba_reactome_event_ancestors(p) ## retrieve ancestors info
         # Sys.sleep(2)
@@ -28,3 +28,7 @@ top_paths <- sapply(pathwaysSelectedSpecies$DB_ID, function(p){
         return(df)
     } )
 })
+
+top_paths.df <- do.call(rbind.data.frame, top_paths)
+top_paths.df$name <- gsub("^Homo sapiens: ", "", top_paths.df$name)
+saveRDS(top_paths.df, "HSapiens_paths_reactome.rds")
