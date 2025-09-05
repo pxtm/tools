@@ -1,7 +1,7 @@
 install.packages('scholar')
 library(scholar)
 
-ID <- 'cWXp5J4AAAAJ'
+ID <- read.table("GScholar_credential.txt")[[1]]
 # Citation history
 cite.by.year<-get_citation_history(ID)
 
